@@ -1,4 +1,4 @@
-package latfulin.figure;
+package figure;
 
 import javafx.scene.canvas.GraphicsContext;
 

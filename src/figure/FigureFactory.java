@@ -1,9 +1,9 @@
-package latfulin.figure;
-
-import jdk.nashorn.internal.ir.ReturnNode;
+package figure;
 
 public class FigureFactory {
     private static FigureFactory instance;
+    public String figureType;
+    private Figure currentFigure;
 
     public static FigureFactory getInstance(){
         if(instance == null){
@@ -12,7 +12,11 @@ public class FigureFactory {
         return instance;
     }
 
-    public Figure getFigure(String figureType){
+    public void setFigureType(String figureType) {
+        this.figureType = figureType;
+    }
+
+    public  Figure getFigure(){
         Figure figure = null;
 
         switch (figureType.toUpperCase()){
@@ -37,7 +41,7 @@ public class FigureFactory {
             }
 
         }
-
+        this.currentFigure = figure;
         return figure;
 
     }

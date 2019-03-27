@@ -1,4 +1,4 @@
-package latfulin.main;
+package main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("UIDrawingFigure.fxml"));
-        stage.setScene(new Scene(root, 870, 508));
+        stage.setScene(new Scene(root, 800, 500));
         stage.show();
 
     }
