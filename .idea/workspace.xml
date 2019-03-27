@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/DrawingFigure.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latfulin/main/DrawingFigureController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latfulin/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latfulin/main/UIDrawingFigure.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latfulin/stuff/line.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latfulin/stuff/oval.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latfulin/stuff/rectangle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latfulin/stuff/right_triangle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/latfulin/stuff/triangle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latfulin/figure/FigureFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/latfulin/figure/IDrawable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latfulin/figure/Drawable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latfulin/figure/Figure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latfulin/figure/Figure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latfulin/figure/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latfulin/figure/Line.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latfulin/figure/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latfulin/figure/Oval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latfulin/figure/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latfulin/figure/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/latfulin/figure/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/latfulin/figure/Triangle.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,18 +68,76 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DrawingFigure.iml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/latfulin/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="120">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/latfulin/figure/FigureFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/latfulin/figure/IDrawable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/latfulin/figure/Figure.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/latfulin/figure/Line.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/latfulin/figure/Oval.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="128" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="128" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/latfulin/figure/Rectangle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="128" selection-start-line="7" selection-start-column="128" selection-end-line="7" selection-end-column="128" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/latfulin/figure/Triangle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -94,33 +152,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/latfulin/main/UIDrawingFigure.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="23" column="78" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
-              <folding>
-                <element signature="n#Button#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-                <element signature="n#graphic#0;n#Button#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-                <element signature="n#ImageView#0;n#graphic#0;n#Button#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-                <element signature="n#image#0;n#ImageView#0;n#graphic#0;n#Button#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-                <element signature="n#Button#1;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-                <element signature="n#graphic#0;n#Button#1;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-                <element signature="n#Button#2;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-                <element signature="n#ImageView#0;n#graphic#0;n#Button#2;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-                <element signature="n#Button#3;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-                <element signature="n#HBox.margin#0;n#Button#3;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-                <element signature="n#graphic#0;n#Button#3;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/latfulin/main/DrawingFigureController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="30">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -131,8 +166,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="JavaFXApplication" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -153,13 +189,22 @@
         <option value="$PROJECT_DIR$/src/by/latfulin/main/Main.java" />
         <option value="$PROJECT_DIR$/src/latfulin/main/DrawingFigureController.java" />
         <option value="$PROJECT_DIR$/src/latfulin/main/Main.java" />
+        <option value="$PROJECT_DIR$/src/latfulin/main/Drawable.java" />
+        <option value="$PROJECT_DIR$/src/latfulin/figure/Drawable.java" />
+        <option value="$PROJECT_DIR$/src/latfulin/figure/Line.java" />
+        <option value="$PROJECT_DIR$/src/latfulin/figure/Oval.java" />
+        <option value="$PROJECT_DIR$/src/latfulin/figure/Rectangle.java" />
+        <option value="$PROJECT_DIR$/src/latfulin/figure/Triangle.java" />
+        <option value="$PROJECT_DIR$/src/latfulin/figure/IDrawable.java" />
+        <option value="$PROJECT_DIR$/src/latfulin/figure/Figure.java" />
+        <option value="$PROJECT_DIR$/src/latfulin/figure/FigureFactory.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="50" />
-    <option name="y" value="74" />
+    <option name="x" value="43" />
+    <option name="y" value="45" />
     <option name="width" value="1612" />
     <option name="height" value="876" />
   </component>
@@ -195,14 +240,21 @@
               <item name="DrawingFigure" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="latfulin" type="462c0819:PsiDirectoryNode" />
+              <item name="figure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DrawingFigure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DrawingFigure" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="latfulin" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -215,7 +267,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553548124091" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553678222615" />
     <property name="dynamic.classpath" value="false" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -244,7 +296,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -263,20 +315,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="latfulin.main.Main" />
-      <module name="DrawingFigure" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="latfulin.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
       <module name="DrawingFigure" />
@@ -289,6 +327,20 @@
       </extension>
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="latfulin.main.Main" />
+      <module name="DrawingFigure" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="latfulin.figure.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -330,11 +382,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main (1)" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -348,17 +395,19 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1553242193648" duration="1795000" />
-      <workItem from="1553542348525" duration="2904000" />
+      <workItem from="1553542348525" duration="5908000" />
+      <workItem from="1553674046033" duration="1022000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6001000" />
+    <option name="totallyTimeSpent" value="10027000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="50" y="74" width="1612" height="876" extended-state="0" />
+    <frame x="43" y="45" width="1612" height="876" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.25605094" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.25923568" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -367,7 +416,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32908162" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32908162" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -410,42 +459,9 @@
     <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml" />
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java" />
-    <entry file="file://$PROJECT_DIR$/out/production/DrawingFigure/Main.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/DrawingFigure/Main.class" />
     <entry file="file://$PROJECT_DIR$/DrawingFigure.iml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/latfulin/main/UIDrawingFigure.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <folding>
-            <element signature="n#Button#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-            <element signature="n#graphic#0;n#Button#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-            <element signature="n#ImageView#0;n#graphic#0;n#Button#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-            <element signature="n#image#0;n#ImageView#0;n#graphic#0;n#Button#0;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-            <element signature="n#Button#1;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-            <element signature="n#graphic#0;n#Button#1;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-            <element signature="n#Button#2;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-            <element signature="n#ImageView#0;n#graphic#0;n#Button#2;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-            <element signature="n#Button#3;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-            <element signature="n#HBox.margin#0;n#Button#3;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-            <element signature="n#graphic#0;n#Button#3;n#children#0;n#HBox#0;n#children#0;n#GridPane#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="102" column="13" selection-start-line="102" selection-start-column="13" selection-end-line="102" selection-end-column="13" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/latfulin/main/UIDrawingFigure.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -468,20 +484,130 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/latfulin/main/DrawingFigureController.java">
+    <entry file="uml://JAVA/latfulin.figure">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>latfulin.figure</OriginalElement>
+          <nodes>
+            <node x="174.75" y="0.0">latfulin.figure.Drawable</node>
+            <node x="340.0" y="158.0">latfulin.figure.Line</node>
+            <node x="183.75" y="79.0">latfulin.figure.Figure</node>
+            <node x="245.0" y="158.0">latfulin.figure.Oval</node>
+            <node x="117.0" y="158.0">latfulin.figure.Rectangle</node>
+            <node x="0.0" y="158.0">latfulin.figure.Triangle</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="latfulin.figure.Figure" target="latfulin.figure.Drawable">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="latfulin.figure.Oval" target="latfulin.figure.Figure">
+              <point x="0.0" y="-14.5" />
+              <point x="282.5" y="138.0" />
+              <point x="237.5" y="138.0" />
+              <point x="10.75" y="14.5" />
+            </edge>
+            <edge source="latfulin.figure.Line" target="latfulin.figure.Figure">
+              <point x="0.0" y="-14.5" />
+              <point x="376.5" y="128.0" />
+              <point x="259.0" y="128.0" />
+              <point x="32.25" y="14.5" />
+            </edge>
+            <edge source="latfulin.figure.Triangle" target="latfulin.figure.Figure">
+              <point x="0.0" y="-14.5" />
+              <point x="48.5" y="128.0" />
+              <point x="194.5" y="128.0" />
+              <point x="-32.25" y="14.5" />
+            </edge>
+            <edge source="latfulin.figure.Rectangle" target="latfulin.figure.Figure">
+              <point x="0.0" y="-14.5" />
+              <point x="171.0" y="138.0" />
+              <point x="216.0" y="138.0" />
+              <point x="-10.75" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="207.0" y="223.0" />
+          <SelectedNodes>
+            <node>latfulin.figure.Triangle</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="102" column="13" selection-start-line="102" selection-start-column="13" selection-end-line="102" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/latfulin/figure/IDrawable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/latfulin/figure/Line.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/latfulin/figure/Oval.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="128" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/latfulin/figure/Rectangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="128" selection-start-line="7" selection-start-column="128" selection-end-line="7" selection-end-column="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/latfulin/figure/Triangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/latfulin/main/DrawingFigureController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/latfulin/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="120">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/latfulin/figure/Figure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/latfulin/figure/FigureFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
         </state>
       </provider>
     </entry>
