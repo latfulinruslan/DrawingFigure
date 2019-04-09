@@ -20,6 +20,7 @@ public class DrawingFigureController {
     private Figure currentFigure;
     private FigureList figureStack = new FigureList();
     private FigureList redoStack = new FigureList();
+    private Figure popedFigure;
     private FigureFactory figureCreator = FigureFactory.getInstance();
     private GraphicsContext gc;
 
@@ -52,7 +53,7 @@ public class DrawingFigureController {
         currentFigure.drawAction(gc);
         figureStack.push(currentFigure);
         currentFigure = null;
-        redoStack = null;
+        redoStack.popAll();
     }
 
     public void clearFigure() {
@@ -61,9 +62,22 @@ public class DrawingFigureController {
     }
 
     public void undoButtonClicked(){
-        figureStack.pop();
+        popedFigure = figureStack.pop();
+        if (popedFigure != null){
+            redoStack.push(popedFigure);
+        }
+
         clearFigure();
         figureStack.drawAction(gc);
     }
 
+    public void redoButtonClicked(){
+        popedFigure = redoStack.pop();
+        if (popedFigure != null){
+            figureStack.push(popedFigure);
+        }
+
+        clearFigure();
+        figureStack.drawAction(gc);
+    }
 }

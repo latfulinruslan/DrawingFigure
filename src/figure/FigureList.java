@@ -2,32 +2,39 @@ package figure;
 
 import javafx.scene.canvas.GraphicsContext;
 
+import java.util.ArrayList;
+
 public class FigureList implements IDrawable{
-    private Figure[] FigureArray;
-    private int pointer;
+    private ArrayList<Figure> FigureArray;
 
     public FigureList() {
-        FigureArray = new Figure[100];
-        pointer = 0;
+        FigureArray = new ArrayList<>();
     }
 
-    public void push(Figure shape) {
+    public void push(Figure figure) {
 
-        FigureArray[pointer++] = shape;
+        FigureArray.add(figure);
     }
 
-    public void pop() {
-        if (pointer > 0){
-            pointer = pointer - 1;
-        } else {
-            pointer = 0;
+    public Figure pop() {
+        int size = FigureArray.size();
+        Figure returnFigure = null;
+        if (size != 0){
+            returnFigure = FigureArray.remove(size - 1);
         }
+        return returnFigure;
+
+    }
+
+    public void popAll(){
+
+        FigureArray.clear();
     }
 
     @Override
     public void drawAction(GraphicsContext gc) {
-        for (int i = 0; i < pointer; i++) {
-            FigureArray[i].drawAction(gc);
+        for (int i = 0; i < FigureArray.size() ; i++) {
+            FigureArray.get(i).drawAction(gc);
         }
     }
 }

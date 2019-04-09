@@ -69,12 +69,15 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#figureButtonClicked" prefHeight="50.0" prefWidth="50.0">
+            <Button fx:id="Circle" mnemonicParsing="false" onMouseClicked="#figureButtonClicked" prefHeight="50.0" prefWidth="50.0">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/circle.png" />
+                     </image></ImageView>
                </graphic>
             </Button>
             <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0">
@@ -82,7 +85,7 @@
                   <Insets left="20.0" />
                </HBox.margin>
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#figureButtonClicked" pickOnBounds="true" preserveRatio="true" />
                </graphic>
             </Button>
          </children>
@@ -93,6 +96,11 @@
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
          <children>
             <Button mnemonicParsing="false" onMouseClicked="#undoButtonClicked" prefHeight="26.0" prefWidth="59.0" text="Undo">
+               <HBox.margin>
+                  <Insets left="10.0" top="8.0" />
+               </HBox.margin>
+            </Button>
+            <Button layoutX="20.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#redoButtonClicked" prefHeight="26.0" prefWidth="59.0" text="Redo">
                <HBox.margin>
                   <Insets left="10.0" top="8.0" />
                </HBox.margin>

@@ -40,6 +40,10 @@ public class FigureFactory {
                 break;
             }
 
+            case "CIRCLE":{
+                figure = new Circle();
+            }
+
         }
         this.currentFigure = figure;
         return figure;
