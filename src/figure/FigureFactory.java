@@ -42,6 +42,12 @@ public class FigureFactory {
 
             case "CIRCLE":{
                 figure = new Circle();
+                break;
+            }
+
+            case "SQUARE":{
+                figure = new Square();
+                break;
             }
 
         }

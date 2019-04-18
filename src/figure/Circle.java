@@ -29,7 +29,6 @@ public class Circle extends Figure {
             pointTwo = secondPoint;
         }
 
-
         radius = Math.hypot(dx, dy);
 
         gc.strokeOval(pointOne.x, pointTwo.y, radius , radius);
