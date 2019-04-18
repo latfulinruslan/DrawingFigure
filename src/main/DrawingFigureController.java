@@ -9,6 +9,8 @@ import figure.FigureFactory;
 import java.awt.geom.Point2D;
 
 import javafx.scene.control.Button;
+
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import figure.FigureList;
 
@@ -16,6 +18,9 @@ public class DrawingFigureController {
 
     @FXML
     private Canvas canvas;
+
+    @FXML
+    private Label coordinatesLabel;
 
     private Figure currentFigure;
     private FigureList figureStack = new FigureList();
@@ -46,6 +51,8 @@ public class DrawingFigureController {
         clearFigure();
         currentFigure.drawAction(gc);
         figureStack.drawAction(gc);
+
+        coordinatesLabel.setText(event.getX() + ":" + event.getY());
     }
 
     public void mouseReleased(MouseEvent mouseEvent) {
@@ -56,9 +63,8 @@ public class DrawingFigureController {
         redoStack.popAll();
     }
 
-    public void clearFigure() {
+    private void clearFigure() {
         gc.clearRect(1, 1, canvas.getWidth() - 1.5, canvas.getHeight() - 1.5);
-
     }
 
     public void undoButtonClicked(){

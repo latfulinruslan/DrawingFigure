@@ -20,7 +20,6 @@ public class Rectangle extends Figure {
             x = secondPoint.x;
         }
 
-
         gc.strokeRect(x, y, Math.abs(secondPoint.x - firstPoint.x), Math.abs(secondPoint.y - firstPoint.y));
     }
 }

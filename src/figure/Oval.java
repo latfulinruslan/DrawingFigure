@@ -7,6 +7,7 @@ public class Oval extends  Figure {
     public void drawAction(GraphicsContext gc) {
         double x;
         double y;
+
         if (firstPoint.x < secondPoint.x) {
             x = firstPoint.x;
         } else {
