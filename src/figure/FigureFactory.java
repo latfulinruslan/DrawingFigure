@@ -3,7 +3,7 @@ package figure;
 public class FigureFactory {
     private static FigureFactory instance;
     public String figureType;
-    private Figure currentFigure;
+
 
     public static FigureFactory getInstance(){
         if(instance == null){
@@ -51,7 +51,6 @@ public class FigureFactory {
             }
 
         }
-        this.currentFigure = figure;
         return figure;
 
     }
