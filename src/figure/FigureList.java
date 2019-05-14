@@ -28,7 +28,6 @@ public class FigureList implements IDrawable {
     }
 
     public void popAll(){
-
         FigureArray.clear();
     }
 
