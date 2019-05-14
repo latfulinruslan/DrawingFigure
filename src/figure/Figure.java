@@ -1,5 +1,7 @@
 package figure;
 
+import interfaces.IDrawable;
+
 import java.awt.geom.Point2D;
 
 public abstract class Figure implements IDrawable {

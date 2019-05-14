@@ -1,10 +1,11 @@
 package figure;
 
+import interfaces.IDrawable;
 import javafx.scene.canvas.GraphicsContext;
 
 import java.util.ArrayList;
 
-public class FigureList implements IDrawable{
+public class FigureList implements IDrawable {
     private ArrayList<Figure> FigureArray;
 
     public FigureList() {
