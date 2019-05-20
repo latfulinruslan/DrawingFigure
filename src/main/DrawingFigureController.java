@@ -1,5 +1,6 @@
 package main;
 
+import figure.Mode;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -28,6 +29,7 @@ public class DrawingFigureController {
     private Figure popedFigure;
     private FigureFactory figureCreator = FigureFactory.getInstance();
     private GraphicsContext gc;
+    private Mode mode = Mode.getInstance();
 
 
     public void initialize(){
@@ -38,12 +40,19 @@ public class DrawingFigureController {
 
 
     public void figureButtonClicked(MouseEvent event){
+        mode.drawMode = true;
         figureCreator.setFigureType(((Button) event.getSource()).getId());
     }
 
     public void mousePressed(MouseEvent event){
-        currentFigure = figureCreator.getFigure();
-        currentFigure.setFirstPoint(new Point2D.Double(event.getX(), event.getY()));
+        Point2D.Double  currentPoint = new Point2D.Double(event.getX(), event.getY());
+        if (mode.drawMode) {
+            currentFigure = figureCreator.getFigure();
+            currentFigure.setFirstPoint(currentPoint);
+        } else {
+            figureStack.select(gc, currentPoint);
+        }
+
     }
 
     public void mouseDragged(MouseEvent event){
@@ -56,11 +65,13 @@ public class DrawingFigureController {
     }
 
     public void mouseReleased(MouseEvent mouseEvent) {
-        currentFigure.setSecondPoint(new Point2D.Double(mouseEvent.getX(), mouseEvent.getY()));
-        currentFigure.drawAction(gc);
-        figureStack.push(currentFigure);
-        currentFigure = null;
-        redoStack.popAll();
+        if (mode.drawMode) {
+            currentFigure.setSecondPoint(new Point2D.Double(mouseEvent.getX(), mouseEvent.getY()));
+            currentFigure.drawAction(gc);
+            figureStack.push(currentFigure);
+            currentFigure = null;
+            redoStack.popAll();
+        }
     }
 
     private void clearFigure() {
@@ -84,6 +95,12 @@ public class DrawingFigureController {
         }
 
         clearFigure();
+        figureStack.drawAction(gc);
+    }
+
+    public void modeButtonClicked(){
+        mode.drawMode = false;
+
         figureStack.drawAction(gc);
     }
 }

@@ -49,7 +49,6 @@ public class FigureFactory {
                 figure = new Square();
                 break;
             }
-
         }
         return figure;
 
