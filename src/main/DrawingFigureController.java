@@ -4,6 +4,7 @@ import figure.Mode;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 import figure.Figure;
 import figure.FigureFactory;
 
@@ -35,11 +36,14 @@ public class DrawingFigureController {
     public void initialize(){
         gc = canvas.getGraphicsContext2D();
         gc.strokeRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        gc.setLineWidth(3);
         figureCreator.setFigureType("Line");
     }
 
 
     public void figureButtonClicked(MouseEvent event){
+        clearFigure();
+        figureStack.drawAction(gc);
         mode.drawMode = true;
         figureCreator.setFigureType(((Button) event.getSource()).getId());
     }
@@ -48,8 +52,11 @@ public class DrawingFigureController {
         Point2D.Double  currentPoint = new Point2D.Double(event.getX(), event.getY());
         if (mode.drawMode) {
             currentFigure = figureCreator.getFigure();
+            currentFigure.setBorderColor(Color.BLACK);
             currentFigure.setFirstPoint(currentPoint);
         } else {
+            clearFigure();
+            figureStack.drawAction(gc);
             figureStack.select(gc, currentPoint);
         }
 
@@ -98,9 +105,9 @@ public class DrawingFigureController {
         figureStack.drawAction(gc);
     }
 
-    public void modeButtonClicked(){
-        mode.drawMode = false;
-
+    public void modeButtonClicked() {
+        clearFigure();
         figureStack.drawAction(gc);
+        mode.drawMode = false;
     }
 }

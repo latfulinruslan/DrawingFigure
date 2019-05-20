@@ -39,6 +39,7 @@ public class FigureList implements IDrawable {
             if (figure instanceof ISelectable) {
                 if (((ISelectable) figure).isSelected(point)) {
                     ((ISelectable) figure).selectAction(gc);
+                    return;
                 }
             }
         }
