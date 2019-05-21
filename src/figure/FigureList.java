@@ -11,9 +11,13 @@ import java.util.ArrayList;
 public class FigureList implements IDrawable {
     private ArrayList<Figure> FigureArray;
     private Mode mode = Mode.getInstance();
+    //private int currentPoint;
+    //private int maxSize;
 
     public FigureList() {
         FigureArray = new ArrayList<>();
+        //currentPoint = 0;
+        //maxSize = 0;
     }
 
     public void push(Figure figure) {

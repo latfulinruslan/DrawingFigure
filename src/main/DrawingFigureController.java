@@ -136,6 +136,8 @@ public class DrawingFigureController {
     public void colorPickerWasHidden() {
         if (!mode.drawMode) {
             mode.editingFigure.setFillingColor(fillingPicker.getValue());
+        } else {
+            //currentFigure.setFillingColor(fillingPicker.getValue());
         }
     }
 }

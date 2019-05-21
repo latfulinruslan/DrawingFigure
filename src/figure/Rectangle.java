@@ -28,6 +28,7 @@ public class Rectangle extends Figure implements ISelectable, IEditable {
         gc.setStroke(borderColor);
         gc.strokeRect(x, y, Math.abs(secondPoint.x - firstPoint.x), Math.abs(secondPoint.y - firstPoint.y));
 
+        gc.setFill(fillingColor);
         gc.fillRect(x, y, Math.abs(secondPoint.x - firstPoint.x), Math.abs(secondPoint.y - firstPoint.y));
     }
 

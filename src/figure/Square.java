@@ -36,6 +36,7 @@ public class Square extends Figure implements ISelectable, IEditable {
                         new double[]{deltaY - delta, deltaY - delta, deltaY + delta, deltaY + delta},
                         4);
 
+        gc.setFill(fillingColor);
         gc.fillPolygon(new double[]{deltaX - delta, deltaX + delta, deltaX + delta, deltaX - delta},
                 new double[]{deltaY - delta, deltaY - delta, deltaY + delta, deltaY + delta},
                 4);
