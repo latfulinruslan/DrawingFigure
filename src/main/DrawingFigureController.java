@@ -1,23 +1,34 @@
 package main;
 
-import figure.Mode;
+import figure.*;
 import interfaces.IEditable;
 import interfaces.ISelectable;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.paint.Color;
-import figure.Figure;
-import figure.FigureFactory;
 
 import java.awt.geom.Point2D;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import javafx.scene.control.Button;
 
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import figure.FigureList;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 
 public class DrawingFigureController {
 
@@ -136,8 +147,79 @@ public class DrawingFigureController {
     public void colorPickerWasHidden() {
         if (!mode.drawMode) {
             mode.editingFigure.setFillingColor(fillingPicker.getValue());
-        } else {
-            //currentFigure.setFillingColor(fillingPicker.getValue());
+        }
+    }
+
+    private void showWindow(Exception e) {
+        Alert window = new Alert(Alert.AlertType.ERROR);
+        window.setTitle("Error");
+        window.setHeaderText("Error:");
+        window.setContentText(e.getMessage());
+
+        window.showAndWait();
+    }
+
+    public void saveButtonClicked() {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Save");
+        File selectedDirectory = directoryChooser.showDialog(null);
+        if (selectedDirectory != null) {
+            String directoryPath = selectedDirectory.getPath();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+            Date date = new Date();
+            String currentDate = dateFormat.format(date);
+            String format = currentDate + ".txt";
+
+            String path = directoryPath + "/" + format;
+
+            File newfile = new File(path);
+            try {
+                if (newfile.createNewFile()) {
+                    ArrayList<Figure> figures = figureStack.getStack();
+
+                    FigureSerializer serializer = new FigureSerializer();
+                    String serializedFigures = serializer.serialize(figures);
+                    try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
+                        bw.write(serializedFigures);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+
+                    }
+                }
+            } catch (IOException e) {
+                showWindow(new RuntimeException("Invalid path"));
+            } catch (Exception e) {
+                showWindow(new Exception(e));
+            }
+        }
+    }
+
+    public void openButtonClicked() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open");
+        FileChooser.ExtensionFilter extFilter =
+                new FileChooser.ExtensionFilter("Text files (*.txt)", "*.txt");
+        fileChooser.getExtensionFilters().add(extFilter);
+        File file = fileChooser.showOpenDialog(null);
+        if (file != null) {
+            try {
+                List<String> rows = Files.readAllLines(Paths.get(file.getPath()));
+
+                FigureSerializer serializer = new FigureSerializer();
+
+                figureStack = serializer.deserialize(rows);
+
+                if(figureStack.isEmpty()) {
+                    showWindow(new RuntimeException("Invalid or empty file"));
+                } else {
+                    clearFigure();
+                    figureStack.drawAction(gc);
+                }
+            } catch (IOException e) {
+                showWindow(new RuntimeException("Invalid or empty file"));
+            } catch (Exception e) {
+                showWindow(new Exception(e));
+            }
         }
     }
 }

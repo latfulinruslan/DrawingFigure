@@ -11,17 +11,10 @@ import java.util.ArrayList;
 public class FigureList implements IDrawable {
     private ArrayList<Figure> FigureArray;
     private Mode mode = Mode.getInstance();
-    //private int currentPoint;
-    //private int maxSize;
 
-    public FigureList() {
-        FigureArray = new ArrayList<>();
-        //currentPoint = 0;
-        //maxSize = 0;
-    }
+    public FigureList() { FigureArray = new ArrayList<>(); }
 
     public void push(Figure figure) {
-
         FigureArray.add(figure);
     }
 
@@ -32,12 +25,13 @@ public class FigureList implements IDrawable {
             returnFigure = FigureArray.remove(size - 1);
         }
         return returnFigure;
-
     }
 
     public void popAll(){
         FigureArray.clear();
     }
+
+    public boolean isEmpty() { return  FigureArray.isEmpty(); }
 
     public void select(GraphicsContext gc, Point2D.Double point) {
         for (int i = FigureArray.size() - 1; i >= 0; i--) {
@@ -66,5 +60,13 @@ public class FigureList implements IDrawable {
         for (int i = 0; i < FigureArray.size() ; i++) {
             FigureArray.get(i).drawAction(gc);
         }
+    }
+
+    public ArrayList<Figure> getStack() {
+        ArrayList<Figure> array = new ArrayList<>();
+        for (int i = 0; i < FigureArray.size(); i++) {
+            array.add(i, FigureArray.get(i));
+        }
+        return array;
     }
 }

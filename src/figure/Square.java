@@ -2,12 +2,15 @@ package figure;
 
 import interfaces.IEditable;
 import interfaces.ISelectable;
+import interfaces.ISerializable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 import java.awt.geom.Point2D;
 
-public class Square extends Figure implements ISelectable, IEditable {
+public class Square extends Figure implements ISelectable, IEditable, ISerializable {
+
+    public Square() { className = "SQUARE"; }
 
     @Override
     public void drawAction(GraphicsContext gc) {

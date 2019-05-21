@@ -9,7 +9,8 @@ import java.awt.geom.Point2D;
 public abstract class Figure implements IDrawable {
     public Point2D.Double firstPoint;
     public Point2D.Double secondPoint;
-    public Color borderColor = Color.BLACK, fillingColor;
+    protected Color borderColor = Color.BLACK, fillingColor;
+    protected String className;
 
     public void setFirstPoint(Point2D.Double firstPoint){
         this.firstPoint = firstPoint;
@@ -36,5 +37,29 @@ public abstract class Figure implements IDrawable {
         secondPoint.y += deltaY;
     }
 
+    public String serialize() {
+        return className + ';' + firstPoint.x + ',' + firstPoint.y + ';' + secondPoint.x + ',' + secondPoint.y + ';' + fillingColor.toString() + '\n';
+    }
+
+    public boolean deserialize(String properties) {
+        String[] cols = properties.split(";");
+        try {
+            className = cols[0];
+
+            String[] aPoints = cols[1].split(",");
+            firstPoint = new Point2D.Double(Double.parseDouble(aPoints[0]), Double.parseDouble(aPoints[1]));
+
+            String[] bPoints = cols[2].split(",");
+            secondPoint = new Point2D.Double(Double.parseDouble(bPoints[0]), Double.parseDouble(bPoints[1]));
+
+
+            fillingColor = new Color(0.0,0.0,0.0,1);
+            fillingColor = Color.web(cols[3]);
+
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
 }

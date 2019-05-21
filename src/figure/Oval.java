@@ -2,12 +2,16 @@ package figure;
 
 import interfaces.IEditable;
 import interfaces.ISelectable;
+import interfaces.ISerializable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 import java.awt.geom.Point2D;
 
-public class Oval extends  Figure implements ISelectable, IEditable {
+public class Oval extends  Figure implements ISelectable, IEditable, ISerializable {
+
+    public Oval() { className = "OVAL"; }
+
     @Override
     public void drawAction(GraphicsContext gc) {
         double x;
