@@ -46,11 +46,11 @@ public abstract class Figure implements IDrawable {
         try {
             className = cols[0];
 
-            String[] aPoints = cols[1].split(",");
-            firstPoint = new Point2D.Double(Double.parseDouble(aPoints[0]), Double.parseDouble(aPoints[1]));
+            String[] firstPoints = cols[1].split(",");
+            firstPoint = new Point2D.Double(Double.parseDouble(firstPoints[0]), Double.parseDouble(firstPoints[1]));
 
-            String[] bPoints = cols[2].split(",");
-            secondPoint = new Point2D.Double(Double.parseDouble(bPoints[0]), Double.parseDouble(bPoints[1]));
+            String[] secondPoints = cols[2].split(",");
+            secondPoint = new Point2D.Double(Double.parseDouble(secondPoints[0]), Double.parseDouble(secondPoints[1]));
 
 
             fillingColor = new Color(0.0,0.0,0.0,1);

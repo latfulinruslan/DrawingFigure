@@ -25,14 +25,12 @@ public class FigureSerializer {
             String[] cols = row.split(";");
             String className = cols[0];
             figureCreator.setFigureType(className);
-            try {
-                Figure shape = figureCreator.getFigure();
-                if(shape instanceof ISerializable)
-                    if (((ISerializable) shape).deserialize(row)) {
-                        stack.push(shape);
-                    }
-            } catch (Exception e) {
-                System.out.print("Corrupted string with name " + className);
+
+            Figure shape = figureCreator.getFigure();
+            if(shape instanceof ISerializable) {
+                if (((ISerializable) shape).deserialize(row)) {
+                    stack.push(shape);
+                }
             }
         }
         return stack;

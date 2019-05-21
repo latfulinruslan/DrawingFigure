@@ -207,6 +207,8 @@ public class DrawingFigureController {
 
                 FigureSerializer serializer = new FigureSerializer();
 
+                figureStack.popAll();
+                redoStack.popAll();
                 figureStack = serializer.deserialize(rows);
 
                 if(figureStack.isEmpty()) {

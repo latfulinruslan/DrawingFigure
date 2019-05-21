@@ -6,6 +6,8 @@ import interfaces.ISerializable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+
+
 import java.awt.geom.Point2D;
 
 public class Triangle extends Figure implements ISelectable, IEditable, ISerializable {
