@@ -1,12 +1,13 @@
 package figure;
 
+import interfaces.IEditable;
 import interfaces.ISelectable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 import java.awt.geom.Point2D;
 
-public class Oval extends  Figure implements ISelectable {
+public class Oval extends  Figure implements ISelectable, IEditable {
     @Override
     public void drawAction(GraphicsContext gc) {
         double x;
@@ -24,7 +25,11 @@ public class Oval extends  Figure implements ISelectable {
             y = secondPoint.y;
         }
 
+        gc.setStroke(borderColor);
         gc.strokeOval(x, y, Math.abs(secondPoint.x - firstPoint.x), Math.abs(secondPoint.y - firstPoint.y));
+
+        gc.setFill(fillingColor);
+        gc.fillOval(x, y, Math.abs(secondPoint.x - firstPoint.x), Math.abs(secondPoint.y - firstPoint.y));
     }
 
     @Override

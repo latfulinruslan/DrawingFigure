@@ -1,12 +1,13 @@
 package figure;
 
+import interfaces.IEditable;
 import interfaces.ISelectable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 import java.awt.geom.Point2D;
 
-public class Square extends Figure implements ISelectable {
+public class Square extends Figure implements ISelectable, IEditable {
 
     @Override
     public void drawAction(GraphicsContext gc) {
@@ -30,9 +31,14 @@ public class Square extends Figure implements ISelectable {
         delta = (Math.hypot(dx, dy));
         delta = Math.sqrt( delta * delta);
 
+        gc.setStroke(borderColor);
         gc.strokePolygon(new double[]{deltaX - delta, deltaX + delta, deltaX + delta, deltaX - delta},
                         new double[]{deltaY - delta, deltaY - delta, deltaY + delta, deltaY + delta},
                         4);
+
+        gc.fillPolygon(new double[]{deltaX - delta, deltaX + delta, deltaX + delta, deltaX - delta},
+                new double[]{deltaY - delta, deltaY - delta, deltaY + delta, deltaY + delta},
+                4);
     }
 
     @Override

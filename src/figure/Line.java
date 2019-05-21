@@ -1,12 +1,13 @@
 package figure;
 
+import interfaces.IEditable;
 import interfaces.ISelectable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 import java.awt.geom.Point2D;
 
-public class Line extends Figure implements ISelectable {
+public class Line extends Figure implements ISelectable, IEditable {
     @Override
     public void drawAction(GraphicsContext gc) {
         gc.setStroke(borderColor);
@@ -25,7 +26,6 @@ public class Line extends Figure implements ISelectable {
     @Override
     public boolean isSelected(Point2D.Double point) {
         return (((point.x <= firstPoint.x && point.x >= secondPoint.x) || (point.x >= firstPoint.x && point.x <= secondPoint.x)) &&
-                ((point.y <= firstPoint.y && point.y >= secondPoint.y) || (point.y >= firstPoint.y && point.y <= secondPoint.y)) &&
-                (Math.abs(((firstPoint.x - point.x) / (firstPoint.y - point.y)) - ((firstPoint.x - secondPoint.x) / (firstPoint.y - secondPoint.y))) < 3));
+                ((point.y <= firstPoint.y && point.y >= secondPoint.y) || (point.y >= firstPoint.y && point.y <= secondPoint.y)));
     }
 }

@@ -1,12 +1,13 @@
 package figure;
 
+import interfaces.IEditable;
 import interfaces.ISelectable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 import java.awt.geom.Point2D;
 
-public class Circle extends Figure implements ISelectable {
+public class Circle extends Figure implements ISelectable, IEditable {
     @Override
     public void drawAction(GraphicsContext gc) {
 
@@ -33,7 +34,11 @@ public class Circle extends Figure implements ISelectable {
 
         radius = Math.hypot(dx, dy);
 
+        gc.setStroke(borderColor);
         gc.strokeOval(pointOne.x, pointTwo.y, radius , radius);
+
+        gc.setFill(fillingColor);
+        gc.fillOval(pointOne.x, pointTwo.y, radius, radius);
     }
 
     @Override

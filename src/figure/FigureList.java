@@ -1,6 +1,7 @@
 package figure;
 
 import interfaces.IDrawable;
+import interfaces.IEditable;
 import interfaces.ISelectable;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 
 public class FigureList implements IDrawable {
     private ArrayList<Figure> FigureArray;
+    private Mode mode = Mode.getInstance();
 
     public FigureList() {
         FigureArray = new ArrayList<>();
@@ -39,10 +41,20 @@ public class FigureList implements IDrawable {
             if (figure instanceof ISelectable) {
                 if (((ISelectable) figure).isSelected(point)) {
                     ((ISelectable) figure).selectAction(gc);
+                    if (figure instanceof IEditable) {
+                        figure.viewSelectedPoints(gc);
+                        mode.editingFigure = figure;
+                        mode.selectPoint = point;
+                    } else {
+                        mode.editingFigure = null;
+                        mode.selectPoint = null;
+                    }
                     return;
                 }
             }
         }
+        mode.editingFigure = null;
+        mode.selectPoint = null;
     }
 
     @Override

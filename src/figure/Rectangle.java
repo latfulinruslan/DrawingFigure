@@ -1,12 +1,13 @@
 package figure;
 
+import interfaces.IEditable;
 import interfaces.ISelectable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 import java.awt.geom.Point2D;
 
-public class Rectangle extends Figure implements ISelectable {
+public class Rectangle extends Figure implements ISelectable, IEditable {
     @Override
     public void drawAction(GraphicsContext gc) {
         double x;
@@ -24,7 +25,10 @@ public class Rectangle extends Figure implements ISelectable {
             x = secondPoint.x;
         }
 
+        gc.setStroke(borderColor);
         gc.strokeRect(x, y, Math.abs(secondPoint.x - firstPoint.x), Math.abs(secondPoint.y - firstPoint.y));
+
+        gc.fillRect(x, y, Math.abs(secondPoint.x - firstPoint.x), Math.abs(secondPoint.y - firstPoint.y));
     }
 
     @Override
