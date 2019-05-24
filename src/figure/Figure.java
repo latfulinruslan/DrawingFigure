@@ -62,4 +62,8 @@ public abstract class Figure implements IDrawable {
         }
     }
 
+    public boolean isSelected(Point2D.Double point) {
+        return (((point.x <= firstPoint.x && point.x >= secondPoint.x) || (point.x >= firstPoint.x && point.x <= secondPoint.x)) &&
+                ((point.y <= firstPoint.y && point.y >= secondPoint.y) || (point.y >= firstPoint.y && point.y <= secondPoint.y)));
+    }
 }

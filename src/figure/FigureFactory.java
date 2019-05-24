@@ -1,56 +1,69 @@
 package figure;
 
+import java.io.File;
+import java.lang.reflect.Constructor;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+
 public class FigureFactory {
-    private static FigureFactory instance;
-    public String figureType;
+    private static List<Class<Figure>> figuresClasses = getFigures();
 
+    public static List<Class<Figure>> getFigures() {
+        List<Class<Figure>> figures = new ArrayList<>();
+        String pathToJars = "JARS_T";
+        File directory =  new File(Paths.get(pathToJars).toAbsolutePath().toString());
+        File[] filesList = directory.listFiles();
 
-    public static FigureFactory getInstance(){
-        if(instance == null){
-            instance = new FigureFactory();
-        }
-        return instance;
-    }
+        if (filesList == null) { return figures; }
 
-    public void setFigureType(String figureType) {
-        this.figureType = figureType;
-    }
+        for (File jar: filesList) {
+            if (jar.isFile() && jar.getName().endsWith(".jar")) {
+                try {
+                    JarFile jarFile = new JarFile(jar.getAbsolutePath());
+                    Enumeration<JarEntry> enumeration = jarFile.entries();
 
-    public  Figure getFigure(){
-        Figure figure = null;
+                    URL[] urls = {new URL("jar:file:" + jar.getAbsolutePath() + "!/")};
+                    URLClassLoader classLoader = URLClassLoader.newInstance(urls);
 
-        switch (figureType.toUpperCase()){
-            case "LINE":{
-                figure = new Line();
-                break;
-            }
+                    while (enumeration.hasMoreElements()) {
+                        JarEntry jarEntry = enumeration.nextElement();
+                        if(jarEntry.isDirectory() || !jarEntry.getName().endsWith(".class")){
+                            continue;
+                        }
 
-            case "OVAL":{
-                figure = new Oval();
-                break;
-            }
+                        String className = jarEntry.getName().substring(0,jarEntry.getName().length()-6);
+                        className = className.replace('/', '.');
+                        Class aClass = classLoader.loadClass(className);
 
-            case "RECTANGLE":{
-                figure = new Rectangle();
-                break;
-            }
-
-            case "TRIANGLE":{
-                figure = new Triangle();
-                break;
-            }
-
-            case "CIRCLE":{
-                figure = new Circle();
-                break;
-            }
-
-            case "SQUARE":{
-                figure = new Square();
-                break;
+                        if (Figure.class.isAssignableFrom(aClass) && !figures.contains(aClass)) {
+                            figures.add((Class<Figure>) aClass);
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
-        return figure;
+        return  figures;
+    }
 
+    public static Figure getFigure(String type) {
+        for (Class<Figure> figureClass: figuresClasses) {
+            if (figureClass.getName().endsWith(type)) {
+                try {
+                    Constructor constructor = figureClass.getConstructor();
+                    return (Figure) constructor.newInstance();
+                } catch (Exception e) {
+                    throw new RuntimeException();
+                }
+            }
+        }
+        throw new RuntimeException();
     }
 }

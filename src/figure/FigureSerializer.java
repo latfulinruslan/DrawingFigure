@@ -20,17 +20,19 @@ public class FigureSerializer {
 
     public FigureList deserialize(List<String> rows) {
         FigureList stack = new FigureList();
-        FigureFactory figureCreator = FigureFactory.getInstance();
         for(String row : rows) {
             String[] cols = row.split(";");
             String className = cols[0];
-            figureCreator.setFigureType(className);
 
-            Figure shape = figureCreator.getFigure();
-            if(shape instanceof ISerializable) {
-                if (((ISerializable) shape).deserialize(row)) {
-                    stack.push(shape);
+            try {
+                Figure figure = FigureFactory.getFigure(className);
+                if(figure instanceof ISerializable) {
+                    if (((ISerializable) figure).deserialize(row)) {
+                        stack.push(figure);
+                    }
                 }
+            } catch (Exception e) {
+                System.out.print("No such figure:");
             }
         }
         return stack;

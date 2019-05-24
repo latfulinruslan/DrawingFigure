@@ -7,12 +7,9 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 
-
-import java.awt.geom.Point2D;
-
 public class Triangle extends Figure implements ISelectable, IEditable, ISerializable {
 
-    public Triangle() { className = "TRIANGLE"; }
+    public Triangle() { className = "Triangle"; }
 
     @Override
     public void drawAction(GraphicsContext gc) {
@@ -52,11 +49,5 @@ public class Triangle extends Figure implements ISelectable, IEditable, ISeriali
                 3);
 
         gc.setLineWidth(lineWidth);
-    }
-
-    @Override
-    public boolean isSelected(Point2D.Double point) {
-        return (((point.x <= firstPoint.x && point.x >= secondPoint.x) || (point.x >= firstPoint.x && point.x <= secondPoint.x)) &&
-                ((point.y <= firstPoint.y && point.y >= secondPoint.y) || (point.y >= firstPoint.y && point.y <= secondPoint.y)));
     }
 }

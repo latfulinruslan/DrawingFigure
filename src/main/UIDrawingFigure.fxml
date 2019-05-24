@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.canvas.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-
+<?import javafx.scene.text.Font?>
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.DrawingFigureController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -20,89 +17,19 @@
     <RowConstraints maxHeight="129.0" minHeight="0.0" prefHeight="36.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox fx:id="hBox" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="mode" mnemonicParsing="false" onMouseClicked="#modeButtonClicked" prefHeight="50.0" prefWidth="50.0">
+            <Button mnemonicParsing="false" onMouseClicked="#modeButtonClicked" prefHeight="50.0" prefWidth="50.0">
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#figureButtonClicked" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icons/mode.png" />
+                        <Image url="@../icons/Mode.png" />
                      </image>
                   </ImageView>
                </graphic>
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
-            </Button>
-            <Button fx:id="Line" mnemonicParsing="false" onMouseClicked="#figureButtonClicked" prefHeight="50.0" prefWidth="50.0">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/line.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="Oval" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#figureButtonClicked" prefHeight="50.0" prefWidth="50.0">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/oval.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="Triangle" mnemonicParsing="false" onMouseClicked="#figureButtonClicked" prefHeight="50.0" prefWidth="50.0">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/triangle.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="Rectangle" mnemonicParsing="false" onMouseClicked="#figureButtonClicked" prefHeight="50.0" prefWidth="50.0">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/rectangle.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="Circle" mnemonicParsing="false" onMouseClicked="#figureButtonClicked" prefHeight="50.0" prefWidth="50.0">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/circle.png" />
-                     </image></ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="Square" mnemonicParsing="false" onMouseClicked="#figureButtonClicked" prefHeight="50.0" prefWidth="50.0">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#figureButtonClicked" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/square.png" />
-                     </image></ImageView>
-               </graphic>
             </Button>
          </children>
          <padding>

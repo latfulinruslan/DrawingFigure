@@ -10,7 +10,7 @@ import java.awt.geom.Point2D;
 
 public class Oval extends  Figure implements ISelectable, IEditable, ISerializable {
 
-    public Oval() { className = "OVAL"; }
+    public Oval() { className = "Oval"; }
 
     @Override
     public void drawAction(GraphicsContext gc) {
@@ -61,11 +61,5 @@ public class Oval extends  Figure implements ISelectable, IEditable, ISerializab
         gc.strokeOval(x, y, Math.abs(secondPoint.x - firstPoint.x), Math.abs(secondPoint.y - firstPoint.y));
 
         gc.setLineWidth(lineWidth);
-    }
-
-    @Override
-    public boolean isSelected(Point2D.Double point) {
-        return (((point.x <= firstPoint.x && point.x >= secondPoint.x) || (point.x >= firstPoint.x && point.x <= secondPoint.x)) &&
-                ((point.y <= firstPoint.y && point.y >= secondPoint.y) || (point.y >= firstPoint.y && point.y <= secondPoint.y)));
     }
 }

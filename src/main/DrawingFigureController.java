@@ -3,11 +3,15 @@ package main;
 import figure.*;
 import interfaces.IEditable;
 import interfaces.ISelectable;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 
 import java.awt.geom.Point2D;
@@ -41,13 +45,18 @@ public class DrawingFigureController {
     @FXML
     private ColorPicker fillingPicker;
 
+    @FXML
+    private HBox hBox;
+
     private Figure currentFigure;
     private FigureList figureStack = new FigureList();
     private FigureList redoStack = new FigureList();
     private Figure popedFigure;
-    private FigureFactory figureCreator = FigureFactory.getInstance();
     private GraphicsContext gc;
     private Mode mode = Mode.getInstance();
+    private String currentFigureType;
+
+
 
 
     public void initialize() {
@@ -55,20 +64,22 @@ public class DrawingFigureController {
         gc.strokeRect(0, 0, canvas.getWidth(), canvas.getHeight());
         gc.setLineWidth(3);
         fillingPicker.setValue(Color.TRANSPARENT);
-        figureCreator.setFigureType("Line");
+        currentFigureType = "Line";
+        configureButtons();
     }
 
-    public void figureButtonClicked(MouseEvent event){
+    public void figureButtonClicked(Event event) {
         clearFigure();
         figureStack.drawAction(gc);
         mode.drawMode = true;
-        figureCreator.setFigureType(((Button) event.getSource()).getId());
+        currentFigureType = ((Button)event.getSource()).getId();
+        System.out.print(currentFigureType);
     }
 
     public void mousePressed(MouseEvent event){
         Point2D.Double  currentPoint = new Point2D.Double(event.getX(), event.getY());
         if (mode.drawMode) {
-            currentFigure = figureCreator.getFigure();
+            currentFigure = FigureFactory.getFigure(currentFigureType);
             currentFigure.setFillingColor(fillingPicker.getValue());
             currentFigure.setFirstPoint(currentPoint);
         } else {
@@ -224,4 +235,32 @@ public class DrawingFigureController {
             }
         }
     }
+
+    private void configureButtons() {
+        List<Class<Figure>> figureInGame = FigureFactory.getFigures();
+        hBox.setSpacing(20);
+        String pathToIcons = "file:/Users/latfulinruslan/Desktop/DrawingFigure/src/icons/";
+
+        for (Class<Figure> figure:figureInGame) {
+            Button button = new Button();
+            String id = figure.getName();
+
+            if (id.substring(7).equals("Figure")) {
+                continue;
+            }
+
+            id = id.substring(7);
+            String url = pathToIcons + id + ".png";
+            Image image = new Image(url);
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(40);
+            imageView.setFitHeight(40);
+
+            button.setId(id);
+            button.setGraphic(imageView);
+            button.setOnAction(event -> figureButtonClicked(event));
+            hBox.getChildren().add(button);
+        }
+    }
+
 }

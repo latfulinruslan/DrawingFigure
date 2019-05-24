@@ -10,7 +10,7 @@ import java.awt.geom.Point2D;
 
 public class Square extends Figure implements ISelectable, IEditable, ISerializable {
 
-    public Square() { className = "SQUARE"; }
+    public Square() { className = "Square"; }
 
     @Override
     public void drawAction(GraphicsContext gc) {
@@ -76,11 +76,5 @@ public class Square extends Figure implements ISelectable, IEditable, ISerializa
                 4);
 
         gc.setLineWidth(lineWidth);
-    }
-
-    @Override
-    public boolean isSelected(Point2D.Double point) {
-        return (((point.x <= firstPoint.x && point.x >= secondPoint.x) || (point.x >= firstPoint.x && point.x <= secondPoint.x)) &&
-                ((point.y <= firstPoint.y && point.y >= secondPoint.y) || (point.y >= firstPoint.y && point.y <= secondPoint.y)));
     }
 }

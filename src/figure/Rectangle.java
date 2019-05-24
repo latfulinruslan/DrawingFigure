@@ -10,7 +10,7 @@ import java.awt.geom.Point2D;
 
 public class Rectangle extends Figure implements ISelectable, IEditable, ISerializable {
 
-    public Rectangle() { className = "RECTANGLE"; }
+    public Rectangle() { className = "Rectangle"; }
 
     @Override
     public void drawAction(GraphicsContext gc) {
@@ -60,11 +60,5 @@ public class Rectangle extends Figure implements ISelectable, IEditable, ISerial
         gc.strokeRect(x, y, Math.abs(secondPoint.x - firstPoint.x), Math.abs(secondPoint.y - firstPoint.y));
 
         gc.setLineWidth(lineWidth);
-    }
-
-    @Override
-    public boolean isSelected(Point2D.Double point) {
-        return (((point.x <= firstPoint.x && point.x >= secondPoint.x) || (point.x >= firstPoint.x && point.x <= secondPoint.x)) &&
-                ((point.y <= firstPoint.y && point.y >= secondPoint.y) || (point.y >= firstPoint.y && point.y <= secondPoint.y)));
     }
 }
